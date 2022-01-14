@@ -1,13 +1,219 @@
-body {
+/*variable declaration*/
+:root{
+  --headerColor:#f54f13 ;
+  --headerSize:2.5rem;
+  --linearGradient:linear-gradient(-130deg, rgba(36,8,0,1) 4%, rgba(121,9,9,0.9951923076923077) 35%, rgba(245,79,20,1) 100%);
+} 
+/*basic css reset */
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background :#000 ;
+  scroll-behavior: smooth ;
+}
+.show{
+  display :none ;
+}
+/**********
+  header 
+**********/
+header{
+  display: flex ;
+  font-family: 'personalFont', sans-serif;
+}
+header img{
+  width :9rem;
+  height :auto ;
+}
+.wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #222;
+  clip-path: circle(1.5625rem at calc(100% - 2.8125rem) 2.8125rem);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
+  z-index: 3;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.menu-btn{
+  position: fixed;
+  z-index: 4;
+  right: 1.25rem;
+  top:1.25rem ;
+  height:3.125rem;
+  width: 3.125rem;
+  text-align: center;
+  line-height: 3.125rem;
+  border-radius: 20%;
+  font-size: 2rem;
+  padding-top: 0.27125rem;
+  color: #fff;
+  cursor: pointer;
+  border-width: 1px ;
+  background: linear-gradient(-135deg, rgba(36,8,0,1) 4%, rgba(121,9,9,0.9951923076923077) 35%, rgba(245,79,20,1) 100%);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .menu-btn{
+  background :transparent ;
+  border: 1px solid rgba(245,79,20,1) ;
+  color: #f54f13;
+}
+#active:checked ~ .menu-btn i:before{
+  content: "\f00d";
+}
+.wrapper ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 0.9375rem 0;
+}
+.wrapper ul li a{
+  text-decoration: none;
+  font-size: 1.875rem;
+  font-weight: 500;
+  padding: 0.3125rem 1.875rem;
+  color: var(--headerColor);
+  position: relative;
+  line-height: 3.125rem;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+  width: 100%;
+  height: 3.125rem;
+  left: 0;
+  border-radius: 3.125rem;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: inherit;
+  outline :none!important ;
+}
+input[type="checkbox"]{
+  display: none;
+}
+/**********
+  footer
+**********/
+footer{
+  border-top: 2px solid #333 ;
+  display :grid ;
+  font-family: 'normalFont', sans-serif;
+  grid-row-gap :2rem;
+  grid-template-columns :1fr ;
+  margin-top: 4rem;
+  padding: 1rem ;
+  place-items: center ;
+  z-index: 1;
+}
+.socials{
+  display :flex ;
+  flex-direction :row ;
+  flex-wrap :nowrap ;
+  justify-content: space-evenly ;
+  width: 100%;
+}
+.socials a{
+  background: var(--linearGradient);
+  border-radius :100%;
+  box-shadow :3px 2px 3px #222 ;
+  color: #fff;
+  display :block ;
+  height :3rem ;
+  padding-top: 1rem ;
+  text-align :center ;
+  width: 3rem;
+}
+.socials a i{
+  text-shadow :-2px 0 3px #111, 0 3px 3px #111;
+}
+.socials ~ p{
+  color: #777;
+  font-family :lightFont ;
+  text-transform: lowercase ;
+} 
+/**********
+MEDIA QUERY 
+**********/
+@media (min-width:48rem){
+  header{
+    display :flex ;
+    flex-direction :row ;
+    flex-wrap: nowrap;
+    justify-content :space-between ;
+  }
+  .hide{
+    display :none ;
+  } 
+ .show{
+   display: contents;
+ }
+  ul.tab{
+  display :flex ;
+  flex-direction :row ;
+  list-style-type: none;
+  justify-content :space-around;
+  text-align: center;
+  max-width :25rem !important;
+}
+ ul li{
+  
+   display :inline-block ;
+  margin: 0.9375rem 0;
+}
+ul li a{
+  text-decoration: none;
+  font-size: 1.875rem;
+  font-weight: 500;
+  padding: 0.3125rem 1.875rem;
+  color: var(--headerColor) !important;
+  position: relative;
+  line-height: 3.125rem;
+  transition: all 0.3s ease;
+}
+ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+  width: 100%;
+  height: 3.125rem;
+  left: 0;
+  border-radius: 3.125rem;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+ul li a:hover:after{
+  transform: scaleY(1);
+}
+ul li a:hover{
+  color: inherit;
+  outline :none!important ;
+}
+footer{
+  grid-template-columns :1fr 1fr;
+}
+.socials a{
+  padding-top: 0.75rem ;
+}
 }

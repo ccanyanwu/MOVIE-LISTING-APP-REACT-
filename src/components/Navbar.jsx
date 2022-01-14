@@ -1,10 +1,17 @@
+import { Link } from "react-router-dom";
+import { useRef } from "react";
+import Logo from "../assets/images/logo.png";
+
 const Navbar = () => {
+  const checkboxRef = useRef();
+  const handleCheckbox = () => (checkboxRef.current.checked = false);
+
   return (
     <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="logo" />
-      </a>
-      <input type="checkbox" id="active" className="hide" />
+      <Link to="/">
+        <img src={Logo} alt="logo" />
+      </Link>
+      <input type="checkbox" id="active" className="hide" ref={checkboxRef} />
       <label htmlFor="active" className="menu-btn hide">
         <i className="fas fa-bars"></i>
       </label>
@@ -12,24 +19,28 @@ const Navbar = () => {
       <nav className="wrapper hide">
         <ul>
           <li>
-            <a href="index.html ">Home</a>
+            <Link to="/" onClick={handleCheckbox}>
+              Home
+            </Link>
           </li>
           <li>
-            <a href="assets/movie.html">Movies</a>
+            <Link to="/movies" onClick={handleCheckbox}>
+              Movies
+            </Link>
           </li>
         </ul>
       </nav>
       {/* desktop nav */}
       <ul className="tab show">
         <li>
-          <a href="index.html ">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="assets/movie.html">Movies</a>
+          <Link to="/movies">Movies</Link>
         </li>
       </ul>
     </header>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
