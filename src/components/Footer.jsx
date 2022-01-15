@@ -1,8 +1,8 @@
-const Footer = () => {
+const Footer = ({movies}) => {
   const date = new Date().getFullYear()
-
+  
   return (
-      <footer>
+      <footer className={movies === null ? 'footerFixed' : null}>
         <div className="socials">
           <a href="tel:+2347033548895" target="_blank" rel="noreferrer">
             <i className="fas fa-phone"></i>

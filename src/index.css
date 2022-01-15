@@ -4,6 +4,19 @@
   --headerSize:2.5rem;
   --linearGradient:linear-gradient(-130deg, rgba(36,8,0,1) 4%, rgba(121,9,9,0.9951923076923077) 35%, rgba(245,79,20,1) 100%);
 } 
+/*custom font*/
+@font-face {
+  font-family: personalFont;
+  src: url("./assets/fonts/BrodoThinGrunge.otf")
+}
+@font-face{
+  font-family :normalFont;
+  src: url("./assets/fonts/AlbertusNovaBlack.woff")
+}
+@font-face{
+  font-family: lightFont;
+  src: url("./assets/fonts/AlbertusNovaLight.woff");
+}
 /*basic css reset */
 *{
   margin: 0;
@@ -112,6 +125,48 @@ header img{
 input[type="checkbox"]{
   display: none;
 }
+
+/**********
+   poster 
+**********/
+.poster{
+  margin-top: 2rem ;
+  max-width: 100vw;
+  padding :0 1rem ;
+}
+.poster h2{
+  color: var(--headerColor);
+  font-family: 'personalFont', sans-serif;
+  font-size :var(--headerSize);
+  font-weight: bolder;
+  letter-spacing: 0.25rem;
+  padding: 0 1rem 1rem ;
+}
+.poster div{
+  border: 2px solid #f3f3f3;
+  border-radius :0.5rem ;
+  max-width: 100vw;
+  margin: 0 auto ;
+  position :relative ;
+}
+.poster div img{
+  border-bottom: 3px solid #444;
+  border-top-left-radius :0.5rem ;
+  border-top-right-radius :0.5rem ;
+  min-height: 50vh ;
+  width :100%;
+}
+.poster div a ~ p{
+  color:#fff ;
+  font-family: 'normalFont', sans-serif;
+  font-size :2.5rem;
+  padding :1rem 0 ;
+  text-align: center ;
+  text-shadow :3px 3px 4px rgba(245, 79, 19, 1) ;
+}
+
+
+
 /**********
   footer
 **********/
@@ -125,6 +180,9 @@ footer{
   padding: 1rem ; 
   place-items: center ;
   z-index: 1;
+  
+}
+.footerFixed{
   position: fixed;
   left: 0;
   bottom: 0;
