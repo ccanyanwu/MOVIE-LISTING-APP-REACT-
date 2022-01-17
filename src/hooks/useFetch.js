@@ -23,7 +23,7 @@ const useFetch = (baseUrl) => {
           setLoading(false);
         }
       } catch (error) {
-        setError(error.message);
+        setError(error);
         setLoading(false);
       }
     };

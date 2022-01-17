@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route
             path="/"
+            exact
             element={<Home movies={data} loading={loading} error={error} />}
           />
           <Route path="/movies" element={<Movies />} />

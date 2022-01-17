@@ -1,9 +1,9 @@
-const MovieDetails = () => {
-  return (
-    <div>
-      Movie details
-    </div>
-  )
-}
+import { useParams } from "react-router-dom";
 
-export default MovieDetails
+const MovieDetails = () => {
+  const params = useParams()
+  console.log(params.movieId);
+  return <div style={{backgroundColor: 'white !important'}}>{params.movieId}</div>;
+};
+
+export default MovieDetails;
