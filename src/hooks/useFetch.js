@@ -5,21 +5,21 @@ const useFetch = (baseUrl) => {
 
   const [loading, setLoading] = useState(true),
     [data, setData] = useState(null),
+    [singleData, setSingleData] = useState(null),
     [error, setError] = useState(null),
     [isMounted, setIsMounted] = useState(true);
   //create an instance of axios
   const api = axios.create({
     baseURL: baseUrl,
-    params: { _limit: 7 },
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get();
-        //console.log(response.data.results);
+        const response = await api.get(); console.log(response.data);
         if (isMounted) {
           setData(response.data.results);
+          setSingleData(response.data)
           setLoading(false);
         }
       } catch (error) {
@@ -34,7 +34,7 @@ const useFetch = (baseUrl) => {
     // eslint-disable-next-line
   }, []);
 
-  return {data, loading, error}
+  return {data, singleData, loading, error}
 };
 
 export default useFetch;

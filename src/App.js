@@ -24,7 +24,7 @@ function App() {
             element={<Home movies={data} loading={loading} error={error} />}
           />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movie/:movieId" element={<MovieDetails />} />
+          <Route path="/movies/:movieId" element={<MovieDetails/>} />
         </Routes>
         <Footer movies={data}/>
       </Router>
