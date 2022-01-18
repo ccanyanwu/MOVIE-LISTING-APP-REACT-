@@ -5,7 +5,7 @@ import SubMovie from "../components/SubMovie";
 const Home = ({ movies, loading, error }) => {
   const IMAGE_URL = "https://image.tmdb.org/t/p";
   //split movies to get top after poster movie
-  let subMovies, titleMovies;
+  let subMovies;
   if (movies !== null) {
     //titleMovies 
     subMovies = movies.slice(1, 7);

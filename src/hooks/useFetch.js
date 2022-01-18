@@ -16,7 +16,7 @@ const useFetch = (baseUrl) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get(); console.log(response.data);
+        const response = await api.get();
         if (isMounted) {
           setData(response.data.results);
           setSingleData(response.data)
