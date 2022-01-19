@@ -47,7 +47,7 @@ const Movies = () => {
           <input
             type="search"
             className="searchTerm"
-            placeholder="Enter movie genre you want"
+            placeholder="Enter movie name"
             value={searchText}
             onChange={handleSearch}
           />
@@ -63,11 +63,6 @@ const Movies = () => {
             <FaSearch />
           </button>
         </div>
-        <em className="guide">
-          *Genres include: action, adventure, animation, comedy, crime,
-          documentary, drama, family, fantasy,history, horror, music, mystery,
-          romance, science fiction,TV Movie, thriller, war and western
-        </em>
         {/* Movie search results */}
         <section className="movies">
           {searchData !== null &&
