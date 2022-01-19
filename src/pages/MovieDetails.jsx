@@ -7,6 +7,7 @@ const MovieDetails = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const params = useParams();
   const baseUrl = "https://api.themoviedb.org";
+
   //fetch movie detail
   const { singleData, loading, error } = useFetch(
     `${baseUrl}/3/movie/${params.movieId}?api_key=${API_KEY}&language=en-US`
@@ -25,10 +26,10 @@ const MovieDetails = () => {
         <h1>{singleData.title ?? singleData.name}</h1>
         <ul>
           <li>
-            Overview <span>: {singleData.overview}</span>
+            Overview: <span> {singleData.overview}</span>
           </li>
           <li>
-            Genre(s):
+            {singleData.genres.length > 1 ? "Genres" : "Genre"}:{" "}
             {singleData.genres.length > 0 &&
               singleData.genres.map((genre, index) =>
                 index === singleData.genres.length - 1 ? (
@@ -39,14 +40,11 @@ const MovieDetails = () => {
               )}
           </li>
           <li>
-            Release date{" "}
-            <span>
-              {" "}
-              : {singleData.release_date ?? singleData.first_air_date}{" "}
-            </span>
+            Release date:{" "}
+            <span>{singleData.release_date ?? singleData.first_air_date} </span>
           </li>
           <li>
-            Language:
+            {singleData.spoken_languages.length > 1 ? "Languages" : "Language"}:{" "}
             {singleData.spoken_languages &&
               singleData.spoken_languages.map((language, index) =>
                 index === singleData.spoken_languages.length - 1 ? (
@@ -57,10 +55,10 @@ const MovieDetails = () => {
               )}
           </li>
           <li>
-            Vote Average <span> : {singleData.vote_average} / 10</span>
+            Vote Average: <span> {singleData.vote_average} / 10</span>
           </li>
           <li>
-            Runtime <span>: {singleData.runtime} minutes </span>
+            Runtime: <span> {singleData.runtime} minutes </span>
           </li>
         </ul>
       </section>

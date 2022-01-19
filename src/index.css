@@ -79,21 +79,21 @@ a:active {
   margin: 2rem auto;
   width: 80%;
 }
-.hero-content{
+.hero-content {
   text-align: center;
 }
-.hero-content > div > h1{
+.hero-content > div > h1 {
   color: #f54f13;
   font-family: normalFont;
   font-size: 5rem;
 }
-.hero-content > div > p{
+.hero-content > div > p {
   color: #f2f2f2;
   font-family: lightFont;
   font-size: 1rem;
   margin: 2rem 0;
 }
-.hero-content > div > :last-child{
+.hero-content > div > :last-child {
   color: #f54f13;
   font-family: normalFont;
   font-size: 2rem;
@@ -360,6 +360,89 @@ section ul li {
 section ul li span {
   font-family: lightFont;
 }
+
+/* Search Movie */
+.searchMovieHeader {
+  color: var(--headerColor);
+  font-family: "personalFont", sans-serif;
+  font-size: var(--headerSize);
+  letter-spacing: 0.25rem;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+.filter-search {
+  width: 90%;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  z-index: 1;
+}
+.searchTerm {
+  background: transparent;
+  width: 100%;
+  border: 1px solid #f2f2f2;
+  border-right: none;
+  padding: 0.3125rem;
+  border-radius: 0.3125rem 0 0 0.3125rem;
+  outline: none;
+  color: #fff;
+  font-family: lightFont;
+}
+.searchTerm:focus {
+  color: #fff;
+}
+.searchButton {
+  width: 2.5rem ;
+  height: 3.125rem;
+  border: 1px solid #fff;
+  background: var(--linearGradient) ;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.guide{
+  color:#777;
+  display :block ;
+  font-size :0.75rem ;
+  font-family: lightFont ;
+  margin: 1rem 5%;
+}
+.movies{
+  color :#fff ;
+  display :grid ;
+  grid-gap :1.25rem;
+  grid-template-columns : 1fr;
+  padding: 1rem ;
+  place-items: center ;
+}
+/* media query */
+@media (min-width:48rem){
+  .movies{
+    grid-gap :2rem;
+    grid-template-columns :1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+@media (min-width:62rem){
+  article .filter-search{
+    width: 50%;
+    display: flex;
+    margin: 0 auto ;
+    z-index: 1;
+  }
+  .movies{
+    grid-template-columns :repeat(3, 1fr);
+  }
+}
+@media (min-width:87rem){
+  .movies{
+    grid-template-columns :repeat(4, 1fr);
+  }
+}
+
 /**********
 MEDIA QUERY 
 **********/
