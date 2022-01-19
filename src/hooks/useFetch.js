@@ -7,6 +7,7 @@ const useFetch = (baseUrl) => {
     [singleData, setSingleData] = useState(null),
     [error, setError] = useState(null),
     [isMounted, setIsMounted] = useState(true);
+
   //create an instance of axios
   const api = axios.create({
     baseURL: baseUrl,
@@ -29,6 +30,7 @@ const useFetch = (baseUrl) => {
 
     fetchData();
     setIsMounted(false);
+
     // eslint-disable-next-line
   }, []);
 

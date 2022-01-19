@@ -17,8 +17,8 @@ const NotFound = ({ message }) => {
     </div>
   );
 };
+
 NotFound.defaultProps = {
   message: "page not found",
 };
-//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
 export default NotFound;

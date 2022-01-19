@@ -10,7 +10,7 @@ import NotFound from "./components/NotFound";
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const BASE_URL = "https://api.themoviedb.org";
-  const { data, loading, error } = useFetch(
+  const { data, singleData, loading, error } = useFetch(
     `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}`
   );
 
@@ -31,7 +31,7 @@ function App() {
           <Route path="/movies/:movieId" element={<MovieDetails />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
-        <Footer movies={data} />
+        <Footer movies={data} movie={singleData} />
       </Router>
     </>
   );

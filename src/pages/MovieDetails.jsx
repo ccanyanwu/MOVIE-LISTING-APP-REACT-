@@ -28,6 +28,7 @@ const MovieDetails = () => {
           <li>
             Overview: <span> {singleData.overview}</span>
           </li>
+
           <li>
             {singleData.genres.length > 1 ? "Genres" : "Genre"}:{" "}
             {singleData.genres.length > 0 &&
@@ -39,10 +40,12 @@ const MovieDetails = () => {
                 )
               )}
           </li>
+
           <li>
             Release date:{" "}
             <span>{singleData.release_date ?? singleData.first_air_date} </span>
           </li>
+
           <li>
             {singleData.spoken_languages.length > 1 ? "Languages" : "Language"}:{" "}
             {singleData.spoken_languages &&
@@ -54,9 +57,11 @@ const MovieDetails = () => {
                 )
               )}
           </li>
+
           <li>
             Vote Average: <span> {singleData.vote_average} / 10</span>
           </li>
+
           <li>
             Runtime: <span> {singleData.runtime} minutes </span>
           </li>

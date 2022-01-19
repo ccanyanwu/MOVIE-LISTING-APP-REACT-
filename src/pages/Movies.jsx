@@ -33,10 +33,9 @@ const Movies = () => {
         `${baseUrl}/3/search/movie?api_key=${API_KEY}&query=${searchText}&adult=true`
       );
       searchMovies();
-    
-      return <NotFound />
-    };
-  }
+      return <NotFound />;
+    }
+  };
 
   if (loading) return <Spinner />;
   if (error) return <NotFound />;
@@ -52,7 +51,15 @@ const Movies = () => {
             value={searchText}
             onChange={handleSearch}
           />
-          <button type="submit" className="searchButton" onClick={() =>  searchText.length === 0 ? alert('please type in your search term')   : handleSearch}>
+          <button
+            type="submit"
+            className="searchButton"
+            onClick={() =>
+              searchText.length === 0
+                ? alert("please type in your search term")
+                : handleSearch
+            }
+          >
             <FaSearch />
           </button>
         </div>

@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import SubMovie from "../components/SubMovie";
+import NotFound from "../components/NotFound";
 
 const Home = ({ movies, loading, error }) => {
   const IMAGE_URL = "https://image.tmdb.org/t/p";
+
   //split movies to get top after poster movie
   let subMovies;
   if (movies !== null) {
-    //titleMovies 
     subMovies = movies.slice(1, 7);
   }
 
   if (loading) return <Spinner />;
   if (error)
     return (
-      <p className="error">Could not fetch data. Please check your network</p>
+      <NotFound message="Could not fetch data. Please check your network" />
     );
 
   return (
@@ -39,7 +40,9 @@ const Home = ({ movies, loading, error }) => {
         {subMovies !== null &&
           subMovies.map((movie) => <SubMovie key={movie.id} movie={movie} />)}
       </section>
-      <Link to='/movies' className="moreMovies">More Movies</Link>
+      <Link to="/movies" className="moreMovies">
+        More Movies
+      </Link>
     </>
   );
 };

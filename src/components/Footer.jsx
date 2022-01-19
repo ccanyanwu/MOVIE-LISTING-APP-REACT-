@@ -1,10 +1,10 @@
 import {FaTwitter, FaEnvelope, FaGithub} from 'react-icons/fa'
 
-const Footer = ({ movies }) => {
+const Footer = ({ movies, movie }) => {
   const date = new Date().getFullYear()
   
   return (
-      <footer className={movies === null ? 'footerFixed' : null}>
+      <footer className={movies === null || movie === null ? 'footerFixed' : null}>
         <div className="socials">
           <a href="https://github.com/ccanyanwu" target="_blank" rel="noreferrer">
             <FaGithub />
